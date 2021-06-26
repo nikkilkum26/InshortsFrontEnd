@@ -3,10 +3,12 @@ import "./NavBar.css";
 import SideBar from "./SideBar";
 import { InshortsContext } from "../Routes";
 import { PATH, PRODUCT_URL } from "../constants";
+import { Button } from "@material-ui/core";
+import { useHistory } from "react-router";
 
 const NavBar = (props) => {
   const { dispatch } = useContext(InshortsContext);
-
+  const history = useHistory();
   const handleClick = () => {
     fetch(`${PRODUCT_URL}${PATH.ARTICLES}`)
       .then((res) => res.json())
@@ -31,6 +33,9 @@ const NavBar = (props) => {
         alt="logo"
         onClick={() => handleClick()}
       />
+      <Button onClick={() => history.push({ pathname: "/adminHome" })}>
+        Admin
+      </Button>
     </div>
   );
 };

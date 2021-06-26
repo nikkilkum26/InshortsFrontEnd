@@ -2,6 +2,8 @@ import React, { useEffect, useContext } from "react";
 import Home from "./components/Home";
 import { InshortsContext } from "./Routes";
 import "./app.css";
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   const { dispatch } = useContext(InshortsContext);
   useEffect(() => {

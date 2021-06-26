@@ -4,10 +4,11 @@ import { Button } from "@material-ui/core";
 import password_hide from "../../assets/password_hide.png";
 import password_show from "../../assets/password_show.png";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { InshortsContext } from "../../Routes";
 import { Spinner } from "react-bootstrap";
 import { PRODUCT_URL, PATH } from "../../constants";
+import "react-toastify/dist/ReactToastify.css";
 function Login(props) {
   const { state, dispatch } = useContext(InshortsContext);
   const emailRef = useRef();
@@ -51,24 +52,34 @@ function Login(props) {
         localStorage.setItem("name", login.data.user.name);
         localStorage.setItem("email", login.data.user.email);
         localStorage.setItem("token", login.data.token);
+        toast.success("Logged In success", {
+          position: toast.POSITION.TOP_CENTER,
+        });
         dispatch({
           type: "ISLOGGEDIN",
           payload: true,
         });
-        props.history.push("/adminHome");
+        setTimeout(() => {
+          props.history.push("/adminHome");
+        }, 1000);
       } else {
-        toast.error("Email or Password is wrong");
+        toast.error("Email or Password is wrong", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       }
     } catch (error) {
       setLoader(false);
       if (error) {
-        toast.error("server error");
+        toast.error("Email or Password is wrong", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       }
     }
   };
 
   return (
     <React.Fragment>
+      <ToastContainer />
       <div className="Login_container">
         <div className="Login_form">
           <div className="Login_header">
@@ -76,7 +87,11 @@ function Login(props) {
               src={
                 "https://assets.inshorts.com/website_assets/images/logo_inshorts.png"
               }
+              alt="logo"
+              onClick={() => props.history.push("/")}
+              style={{ cursor: "pointer" }}
             />
+
             <div>Login</div>
           </div>
           <div>

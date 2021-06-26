@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { createArticles, getCategories, createCategory } from "./adminApi";
+import { InshortsContext } from "../../Routes";
+import { Button } from "@material-ui/core";
+import { useHistory } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
 import "./AdminHome.css";
+import "react-toastify/dist/ReactToastify.css";
 
 function AddProduct() {
+  const history = useHistory();
+  const { dispatch } = useContext(InshortsContext);
   const [values, setValues] = useState({
     tile: "",
     description: "",
@@ -61,6 +68,7 @@ function AddProduct() {
 
     setValues({ ...values, [name]: value });
   };
+
   const clickSubmitCategory = (e) => {
     e.preventDefault();
     setCategoryError("");
@@ -74,6 +82,9 @@ function AddProduct() {
       if (data.error) {
         setCategoryError(data.error);
       } else {
+        toast.success("Done !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
         setCategoryError("");
         setSuccess(true);
         init();
@@ -105,6 +116,9 @@ function AddProduct() {
           loading: false,
           createdArticle: data.name,
           category: "",
+        });
+        toast.success("Done!", {
+          position: toast.POSITION.TOP_CENTER,
         });
       }
     });
@@ -146,6 +160,19 @@ function AddProduct() {
     </form>
   );
 
+  const logout = () => {
+    toast.success("Logged-out successfully !", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+    setTimeout(() => {
+      localStorage.clear();
+      history.push({ pathname: "/" });
+      dispatch({
+        type: "ISLOGGEDIN",
+        payload: false,
+      });
+    }, 1000);
+  };
   const newPostForm = () => {
     return (
       <>
@@ -276,6 +303,19 @@ function AddProduct() {
             </div>
           </div>
         </div>
+        <hr />
+        <div className="">
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            style={{ marginBottom: "10px", color: "white" }}
+            onClick={() => logout()}
+          >
+            Logout
+          </Button>
+        </div>
+        <ToastContainer />
       </>
     );
   };
