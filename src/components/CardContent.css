@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+.cardcontent__card {
+  display: flex;
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 10px;
+  margin-bottom: 60px;
+  border-radius: 5px;
+
+  /* margin-left: 30px; */
+  /* margin-right: 30px; */
+}
+
+.cardcontent__holder {
+  padding: 0 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardcontent__postedby {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 22px;
+  color: #808290;
+  text-decoration: none;
+}
+
+.cardcontent__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: 10px 0;
+}
+
+.cardcontent__readmore {
+  font-size: 12px;
+  font-weight: 400;
+  padding-top: 10px;
+}
+
+.cardcontent__source {
+  text-decoration: none;
+  color: black;
+}
+
+.cardcontent__image {
+  object-fit: cover;
+  width: 320px;
+  height: 268px;
+  min-width: 35%;
+  min-height: 35%;
+}
+.cardcontent__title {
+  font-size: 22px;
+  line-height: 27px;
+  font-family: "Roboto", sans-serif;
+}
+
+.cardcontent__postedbyName2 {
+  font-weight: 100;
+}
+
+.cardcontent__description {
+  font-size: 16px;
+  line-height: 22px;
+  color: #44444d;
+}
+
+@media (max-width: 800px) {
+  .cardcontent__card {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cardcontent__image {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+  }
+}

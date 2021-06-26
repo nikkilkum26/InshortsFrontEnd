@@ -1,0 +1,7 @@
+.form__container {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 5px 6px 30px #a8b1e573;
+  border-radius: 6px;
+  padding: 30px 45px 45px 45px;
+  margin-bottom: 50px;
+}

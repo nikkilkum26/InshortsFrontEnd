@@ -1,0 +1,12 @@
+.Footer__container {
+  background-color: #323232 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}

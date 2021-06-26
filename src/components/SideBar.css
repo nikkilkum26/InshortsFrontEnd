@@ -1,0 +1,7 @@
+.SideBar__category {
+  display: flex;
+  justify-content: center;
+}
+.MuiDrawer-paperAnchorLeft {
+  background: #303036 !important;
+}
