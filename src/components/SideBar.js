@@ -8,10 +8,7 @@ import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
@@ -29,7 +26,7 @@ const useStyles = makeStyles({
 });
 
 export default function SwipeableTemporaryDrawer() {
-  const { state, dispatch } = useContext(InshortsContext);
+  const { dispatch } = useContext(InshortsContext);
   const classes = useStyles();
   const [swipeState, setState] = React.useState({
     left: false,
@@ -63,13 +60,13 @@ export default function SwipeableTemporaryDrawer() {
     fetch(`${PRODUCT_URL}${PATH.CATEGORY}`)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setCategories(result);
       });
   }, []);
 
   const handleCategory = (category) => {
-    console.log(category);
+    // console.log(category);
 
     let params = "category/" + category;
 
@@ -83,7 +80,7 @@ export default function SwipeableTemporaryDrawer() {
       });
   };
 
-  console.log(state, "here");
+  // console.log(state, "here");
 
   const list = (anchor) => (
     <div

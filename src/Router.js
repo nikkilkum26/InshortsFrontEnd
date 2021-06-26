@@ -5,7 +5,7 @@ import { InshortsContext } from "./Routes";
 import Login from "./components/AdminAccess/Login";
 import AdminHome from "./components/AdminAccess/AdminHome";
 const Router = () => {
-  const { state, dispatch } = useContext(InshortsContext);
+  const { state } = useContext(InshortsContext);
   return (
     <BrowserRouter>
       <Switch>

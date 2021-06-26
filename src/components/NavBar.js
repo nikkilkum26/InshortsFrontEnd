@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import "./NavBar.css";
 import SideBar from "./SideBar";
 import { InshortsContext } from "../Routes";
@@ -11,7 +11,7 @@ const NavBar = (props) => {
     fetch(`${PRODUCT_URL}${PATH.ARTICLES}`)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
 
         dispatch({
           type: "NEWS",

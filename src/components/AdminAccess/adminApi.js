@@ -1,7 +1,7 @@
 import { PRODUCT_URL, PATH } from "../../constants";
 
 export const createCategory = (userId, token, category) => {
-  console.log(userId, token, category);
+  // console.log(userId, token, category);
   return fetch(`${PRODUCT_URL}${PATH.CATEGORY}${PATH.CREATE}${userId}`, {
     method: "post",
     headers: {
@@ -16,7 +16,7 @@ export const createCategory = (userId, token, category) => {
       return res.json();
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
     });
 };
 

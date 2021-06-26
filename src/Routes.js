@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import { reducer, initialState } from "./Reducer/reducer";
+import { reducer } from "./Reducer/reducer";
 import Router from "./Router";
 export var InshortsContext = createContext();
 const Routes = () => {

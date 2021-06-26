@@ -1,5 +1,5 @@
 const initialState = [{}];
-let val = {};
+
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "CATEGORY":

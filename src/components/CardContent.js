@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { InshortsContext } from "../Routes";
 import "./CardContent.css";
 import { PATH, PRODUCT_URL } from "../constants";
 
 const CardContent = () => {
-  const [news, setNews] = useState([]);
   const { state, dispatch } = useContext(InshortsContext);
   useEffect(() => {
     fetch(`${PRODUCT_URL}${PATH.ARTICLES}`)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
 
         dispatch({
           type: "NEWS",

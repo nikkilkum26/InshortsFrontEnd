@@ -18,7 +18,7 @@ function Login(props) {
     password: "",
   });
 
-  console.log("state", state);
+  // console.log("state", state);
   useEffect(() => {
     if (localStorage.getItem("token")) {
       dispatch({
@@ -44,7 +44,7 @@ function Login(props) {
         ` ${PRODUCT_URL}${PATH.ADMIN}${PATH.SIGNIN}`,
         userstate
       );
-      console.log(login);
+      // console.log(login);
       if (login.status === 200) {
         setLoader(false);
         localStorage.setItem("userID", login.data.user._id);

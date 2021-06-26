@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createArticles, getCategories, createCategory } from "./adminApi";
-import { Container } from "@material-ui/core";
 import "./AdminHome.css";
 
 function AddProduct() {
@@ -71,7 +70,7 @@ function AddProduct() {
       localStorage.getItem("token"),
       { name }
     ).then((data) => {
-      console.log(data);
+      // console.log(data);
       if (data.error) {
         setCategoryError(data.error);
       } else {
